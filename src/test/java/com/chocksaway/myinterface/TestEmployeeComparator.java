@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 
 public class TestEmployeeComparator {
     List<Employee> employees;
@@ -25,4 +26,17 @@ public class TestEmployeeComparator {
         Collections.sort(employees);
         assertEquals("miles", employees.get(1).getName());
     }
+
+    @Test
+    public void employeeHasComparator() {
+        assertTrue(employees.get(0) instanceof Comparable);
+    }
+
+    @Test
+    public void testCheckForEmptyEmployeeName() {
+         var emptyEmployee = new Employee("", 5000);
+         assertTrue(emptyEmployee.name().isEmpty());
+    }
+
+
 }

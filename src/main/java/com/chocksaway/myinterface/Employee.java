@@ -1,14 +1,6 @@
 package com.chocksaway.myinterface;
 
-public class Employee implements Comparable<Employee> {
-    private final String name;
-    private final int salary;
-
-    public Employee(String name, int salary) {
-        this.name = name;
-        this.salary = salary;
-    }
-
+public record Employee(String name, int salary) implements Comparable<Employee> {
     public String getName() {
         return this.name;
     }
